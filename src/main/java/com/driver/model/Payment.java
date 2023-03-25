@@ -10,15 +10,18 @@ public class Payment {
     @Enumerated(EnumType.STRING)
     private PaymentMode paymentMode;
 
+    boolean paymentCompleted;
+
     @OneToOne
     Reservation reservation;
 
     public Payment() {
     }
 
-    public Payment(int id, PaymentMode paymentMode, Reservation reservation) {
+    public Payment(int id, PaymentMode paymentMode, boolean paymentCompleted, Reservation reservation) {
         this.id = id;
         this.paymentMode = paymentMode;
+        this.paymentCompleted = paymentCompleted;
         this.reservation = reservation;
     }
 
@@ -44,5 +47,13 @@ public class Payment {
 
     public void setReservation(Reservation reservation) {
         this.reservation = reservation;
+    }
+
+    public boolean isPaymentCompleted() {
+        return paymentCompleted;
+    }
+
+    public void setPaymentCompleted(boolean paymentCompleted) {
+        this.paymentCompleted = paymentCompleted;
     }
 }
