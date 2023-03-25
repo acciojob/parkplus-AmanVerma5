@@ -74,6 +74,7 @@ public class ReservationServiceImpl implements ReservationService {
         user.getReservationList().add(reservation);
 
         userRepository3.save(user);
+        spotRepository3.save(bookedSpot);
         parkingLotRepository3.save(parkingLot);
 
         return reservation;
